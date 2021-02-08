@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <report 
+        id="report_control_vr_hours" 
+        model="controlvr" 
+        string="Factura" 
+        report_type="qweb-pdf" 
+        name="control_vr_kanban.report_control_vr_hours" 
+        attachment_use="False" 
+        file="control_vr_kanban.report_control_vr_hours" />
+</odoo>

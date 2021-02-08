@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="css/tabla.css"?>
+<odoo>
+    <template id="report_control_vr_hours"> 
+        <t t-call="web.html_container"> 
+            <t t-foreach="docs" t-as="o"> 
+                <t t-call="web.external_layout"> 
+                    <div class="page"> 
+                        <h2>Factura para el cliente</h2> 
+                        <p>Don/Doña <span t-field="o.name"/> su factura es la siguiente</p> 
+                        <table style="width:100%">
+                          <tr>
+                            <th>Cliente</th>
+                            <th>Producto</th>                            
+                            <th>Fecha del alquiler</th>
+                            <th>Fecha devolución</th>
+                            <th>Precio</th>
+                            <th>Supervisor</th>
+                          </tr>
+                          <tr>
+                            <td><span t-field="o.name"/></td>
+                            <td><span t-field="o.producto"/></td>                            
+                            <td><span t-field="o.fecha_alquilar"/></td>
+                            <td><span t-field="o.fecha_finalizacion"/></td>
+                            <td><span t-field="o.precio"/>€</td>
+                            <td><span t-field="o.supervisor"/></td>
+                          </tr>
+                      </table>
+                    </div> 
+                </t> 
+            </t> 
+        </t> 
+    </template>
+</odoo>

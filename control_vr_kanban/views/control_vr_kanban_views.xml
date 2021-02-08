@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <act_window id="action_control_vr_kanban" name="Control VR Kanban Board" res_model="controlvr" view_mode="kanban,tree,form" />
+<menuitem id="menu_control_vr_kanban" name="Control VR Kanban Board" parent="control_vr.l1_menu_control_vr" sequence="30" 
+action="action_control_vr_kanban" />
+    <record id="Control VR Kanban" model="ir.ui.view">
+        <field name="name">Control VR Kanban</field>
+        <field name="model">controlvr</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="kanban_state" default_order="fecha_alquilar" quick_create="false">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card">
+                            <div class="oe_kanban_content">
+                                <h4>
+                                    <a type="open">
+                                        <field name="name" />
+                                    </a>
+                                </h4>
+                                <ul>
+                                    <li>
+                                        <field name="supervisor" />
+                                    </li>
+                                    <li>
+                                        <field name="fecha_alquilar" />
+                                    </li>
+                                    <li>
+                                        <field name="fecha_finalizacion" />
+                                    </li>
+                                </ul>
+                                <div class="oe_kanban_bottom_right">
+                                    <field name="kanban_state" widget="kanban_state_selection"/>
+                                </div>
+                                <div class="oe_kanban_footer_left">
+                                    <field name="priority" widget="priority"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>
