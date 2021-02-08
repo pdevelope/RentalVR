@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <odoo>
+        <act_window id="action_control_vr" name="Control VR" res_model="controlvr" view_mode="tree,form,graph,pivot"/> 
+        <menuitem id="main_menu_control_vr" name="Control VR App"/>
+        <menuitem id="l1_menu_control_vr" name="Control VR" parent="main_menu_control_vr"/>   
+        <menuitem id="menu_control_vr" name="Control VR" parent="l1_menu_control_vr" action="action_control_vr"/>
+        <!-- Vista de listado -->
+		<record id="view_tree_control_vr" model="ir.ui.view">
+    		<field name="name">Control VR Tree</field>
+    		<field name="model">controlvr</field>
+    		<field name="arch" type="xml">
+        		<tree>
+            		<field name="name"/>
+            		<field name="fecha_alquilar"/>
+            		<field name="fecha_finalizacion"/>
+            		<field name="devuelto"/>
+        		</tree>
+    		</field>
+		</record>
+		<!-- Vista de búsqueda -->
+		<record id="view_filter_control_vr" model="ir.ui.view">
+		    <field name="name">Control VR Filter</field>
+		    <field name="model">controlvr</field>
+		    <field name="arch" type="xml">
+		        <search>
+		            <field name="name"/>
+		            <filter name="devuelto" string="Devueltos" domain="[('devuelto','!=',False)]"/>
+		        </search>
+		    </field>
+		</record>
+		<!-- Vista de Formulario -->
+		<record id="view_form_control_vr" model="ir.ui.view">
+		    <field name="name">Control VR Form</field>
+		    <field name="model">controlvr</field>
+		    <field name="arch" type="xml">
+		        <form>
+		            <sheet>
+		                <group name="group_top">
+		                    <group name="group_left">
+		                        <field name="name"/>
+		                        <field name="fecha_alquilar"/>
+		                        <field name="horas_estimadas"/>
+		                        <field name="supervisor"/>
+		                        <field name="descripcion"/>
+		                    </group>
+		                    <group name="group_right">
+		                        <field name="producto"/>
+		                        <field name="fecha_finalizacion"/>
+		                        <field name="precio"/>
+		                        <field name="devuelto"/>
+		                    </group>
+		                </group>
+		            </sheet>
+		        </form>
+		    </field>
+		</record>
+		<!-- Vista de grafico -->
+		<record id="view_graph_control_vr" model="ir.ui.view">
+        <field name="name">Control VR Graph</field>
+        <field name="model">controlvr</field>
+        <field name="arch" type="xml">
+            <graph>
+                <field name="name"/>
+                <field name="horas_estimadas" type="measure"/>
+            </graph>
+        </field>
+    </record>
+    <!-- Vista de pivot -->
+    <record id="view_pivot_control_vr" model="ir.ui.view">
+        <field name="name">Control VR Pivot</field>
+        <field name="model">controlvr</field>
+        <field name="arch" type="xml">
+            <pivot>            	
+                <field name="fecha_alquilar" type="col"/>
+                <field name="horas_estimadas" type="col"/>
+                <field name="fecha_finalizacion" type="col"/>
+                <field name="name" type="row"/>
+                <field name="supervisor" type="row"/>
+            </pivot>
+        </field>
+    </record>
+    </odoo>
